@@ -1,7 +1,8 @@
 # csharp-exec-server
 Express.js server using MVC structure which can run C# code
 
-Can also be run in Docker.
+Can also be run in Docker.  
+https://docs.docker.com/language/nodejs/containerize/
 
 This was made for the Wien West Akademie Diplomarbeit.
 
