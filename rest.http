@@ -1,0 +1,62 @@
+GET http://localhost:5000/test
+###
+### Correct:
+POST http://localhost:5000/runcsharp
+Content-Type: application/json
+
+{
+    "user": "Talon",
+    "code": "using System; public class HelloWorld { public static void Main(string[] args) { Console.WriteLine(\"Hallo, Wien West Akademie!\"); } }"
+}
+###
+### Compilation Error:
+POST http://localhost:5000/runcsharp
+Content-Type: application/json
+
+{
+    "user": "Talon",
+    "code": "using System; public class HelloWorld { public static void Main(string[] args) { Console.Log(\"Hallo, Wien West Akademie!\"); } }"
+}
+###
+### Runtime Error:
+POST http://localhost:5000/runcsharp
+Content-Type: application/json
+
+{
+    "user": "Talon",
+    "code": "using System; public class HelloWorld { public static void Main(string[] args) { Console.WriteLine(\"Hallo, Wien West Akademie!\"); int a = 0; int b = 1 / a; } }"
+}
+###
+### Timeout:
+POST http://localhost:5000/runcsharp
+Content-Type: application/json
+
+{
+    "user": "Talon",
+    "code": "using System; public class HelloWorld { public static void Main(string[] args) { while(true) { } } }"
+}
+###
+### Using blacklisted namespace:
+POST http://localhost:5000/runcsharp
+Content-Type: application/json
+
+{
+    "user": "Talon",
+    "code": "using System; using System.IO; public class HelloWorld { public static void Main(string[] args) { Console.WriteLine(\"Hallo, Wien West Akademie!\"); } }"
+}
+###
+### Missing User:
+POST http://localhost:5000/runcsharp
+Content-Type: application/json
+
+{
+    "code": "using System; public class HelloWorld { public static void Main(string[] args) { Console.WriteLine(\"Hallo, Wien West Akademie!\"); } }"
+}
+###
+### Missing Code:
+POST http://localhost:5000/runcsharp
+Content-Type: application/json
+
+{
+    "user": "Talon"
+}
