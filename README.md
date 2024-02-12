@@ -2,7 +2,11 @@
 Express.js server using MVC structure which can run C# code
 
 Can also be run in Docker.  
-https://docs.docker.com/language/nodejs/containerize/
+https://docs.docker.com/language/nodejs/containerize/  
+(Run the following:)
+```bash
+$ docker compose up --build
+```
 
 This was made for the Wien West Akademie Diplomarbeit.
 
