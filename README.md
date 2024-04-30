@@ -42,7 +42,7 @@ The following information is returned:
 - `exitCode`: The exit code
 - `timedOut`: Whether the code timed out
 
-and with a status of `200` if OK, `400` if an error ocurred, and `408` if timed out.
+and with a status of `200` if OK, `400` if an error occurred, and `408` if timed out.
 
 Created files are deleted afterwards.  
 Also when an exe couldn't be compiled, the cs file still gets deleted afterwards.
