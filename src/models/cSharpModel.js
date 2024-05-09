@@ -1,7 +1,7 @@
 import { spawn } from 'child_process'
 import fs from 'fs'
 
-const runCommand = (command, args, timeout = 5000, commandDescription = '') => {
+const runCommand = (command, args, timeout = 1500, commandDescription = '') => {
   return new Promise((resolve, reject) => {
     const spawnedProcess = spawn(command, args)
 
